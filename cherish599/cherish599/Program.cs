@@ -1,4 +1,5 @@
-﻿using System;
+﻿using huodong;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,22 @@ namespace cherish599
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            //Application.Run(new Form1());
+            Login login = new Login();
+
+            //界面转换
+            login.ShowDialog();
+
+            if (login.DialogResult == DialogResult.OK)
+            {
+                login.Dispose();
+                Application.Run(new Index());
+            }
+            else if (login.DialogResult == DialogResult.Cancel)
+            {
+                login.Dispose();
+                return;
+            }
         }
     }
 }
